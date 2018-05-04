@@ -1,0 +1,36 @@
+apply plugin: "java"
+apply plugin: "application"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group 'org.coderearth'
+version '0.0.1.SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.16.20'
+
+    compile 'com.google.guava:guava:23.0'
+
+    compile 'org.slf4j:jcl-over-slf4j:1.7.21'
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+
+    testCompile 'junit:junit:4.12'
+}
+
+clean.doLast {
+    file('logs').deleteDir()
+    file('out').deleteDir()
+    file('bin').deleteDir()
+}
+
+mainClassName = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "MainApp"
+
+run {
+    if(System.getProperty("exec.args") != null)
+        args System.getProperty("exec.args").split()
+}
