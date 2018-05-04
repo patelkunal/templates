@@ -12,5 +12,5 @@ steps -
 # using globaly installed gradle
 gradle run -PmainClass=<your-fully-qualified-main-class>
 # pass command-line args to main
-gradle run -PmainClass=<your-fully-qualified-main-class> -Dexec.args="arg1 arg2 1 2 3" # to pass command line args
+gradle run -PmainClass=<your-fully-qualified-main-class> -Dexec.args="arg1 arg2 1 2 3"
 ```
